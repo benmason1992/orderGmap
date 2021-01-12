@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Takeaway</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBev1K0QV2XXzwQYzUc7riQ7JXldkH-Lm8&region=GB"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script src="database.js"></script>
+    <script src="scripts.js"></script>
+</head>
+
+<body style="margin: 30px">
+    <div data-role="page" id="page">
+
+        <div id="mapSide">
+            <h1>Takeaway Tracker</h1>
+            <div id="initMap"></div>
+        </div>
+
+        <div id="addSide">
+            <h1>Make Order</h1>
+            <button id="add" class="ui-btn ui-btn-b ui-corner-all">Add an Order</button>
+            <div id="formDiv" class="popupBody">
+                <form action="" id="orderSubmit">
+                    <div id="catchErr"></div>
+                    <label>Name</label><span id="nameErr">Please enter at least 3 characters.</span>
+                    <input type="text" id="name" name="name" required>
+
+                    <label>Phone</label><span id="phoneErr">Please enter a valid UK number.</span>
+                    <input type="text" id="phone" name="phone" required>
+
+                    <label>House Number</label><span id="houseErr">Please enter a house number.</span>
+                    <input type="text" id="house" name="house" required>
+
+                    <label>Street</label><span id="streetErr">Please enter at least 3 characters.</span>
+                    <input type="text" id="street" name="street" required>
+
+                    <label>City</label><span id="cityErr">Please enter at least 3 characters.</span>
+                    <input type="text" id="city" name="city" required>
+
+                    <label>Postcode</label><span id="postcodeErr">Please enter at least 5 characters.</span>
+                    <input type="text" id="postcode" name="postcode" required>
+
+                    <label>Order</label><span id="orderErr">Please enter at least 5 characters.</span>
+                    <input type="text" id="order" name="order" required>
+
+                    <button class="ui-btn ui-btn-b ui-corner-all" type="button" id="insert">Order!</button>
+                    <button class="ui-btn ui-btn-b ui-corner-all" type="button" id="cancel">Cancel</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="orderSide">
+            <h1>Show Orders</h1>
+            <button class="ui-btn ui-btn-b ui-corner-all" id="show" data-icon="info">Show Orders</button>
+            <div id="orderContainer">
+                <table id="orderList">
+                </table>
+                <form action="" id="deleteForm">
+                    <fieldset>
+                        <select data-theme="b" name="orders" id="delOrderList">
+                            <option value="" selected>Select Order</option>
+                        </select>
+                        <button class="ui-btn ui-btn-b ui-corner-all" type="button" id="deleteOrder">Delete
+                            Order</button>
+                    </fieldset>
+                </form>
+                <button class="ui-btn ui-btn-b ui-corner-all" type="button" id="hideOrders">Hide Orders</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
